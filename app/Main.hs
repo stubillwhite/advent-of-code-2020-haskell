@@ -1,7 +1,9 @@
 module Main where
 
 import AdventOfCode.Day01 (day01)
-import Lib
+import AdventOfCode.Day02 (day02)
 
 main :: IO ()
-main = day01
+main = do
+    day01
+    day02

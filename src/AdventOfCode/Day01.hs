@@ -42,7 +42,6 @@ solutionTwo input =
     parsedInput = map parseInput (lines input)
     combinations = combinationsOf 3 parsedInput
 
--- >>> day01
 day01 :: IO ()
 day01 = do  
     problemInput <- readFile "input/day-01.txt"

@@ -6,6 +6,9 @@ author:              "Author name here"
 maintainer:          "example@example.com"
 copyright:           "2020 Author name here"
 
+default-extensions:
+- NamedFieldPuns    
+
 extra-source-files:
 - README.md
 - ChangeLog.md
@@ -22,6 +25,7 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 - split
+- parsec
 
 library:
   source-dirs: src
