@@ -38,9 +38,7 @@ isValidSledRentalPassword PasswordEntry{a,b,ch,password} =
 
 solutionOne :: String -> Either ParseError Int
 solutionOne input = 
-    validPasswords
-  where
-    validPasswords = fmap (length . filter isValidSledRentalPassword) (parseInput input)
+    fmap (length . filter isValidSledRentalPassword) (parseInput input)
 
 -- Part two
 
