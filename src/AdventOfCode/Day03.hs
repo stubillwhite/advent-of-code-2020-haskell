@@ -1,5 +1,5 @@
 module AdventOfCode.Day03
-  ( day03, solutionOne
+  ( day03, solutionOne, solutionTwo
   ) where 
 
 data State = State
@@ -41,15 +41,35 @@ totalTreesHit state@State{height, y, trees} =
   if (y < height) then (totalTreesHit . nextState) state
   else trees
 
-solutionOne :: String -> Int
-solutionOne input = 
+totalTreesHitOnPath :: String -> Int -> Int -> Int
+totalTreesHitOnPath input dx dy = 
     totalTreesHit state
     where
       forest = lines input
-      state = initialState forest 3 1
+      state = initialState forest dx dy
+
+solutionOne :: String -> Int
+solutionOne input = 
+    totalTreesHitOnPath input 3 1
+
+-- Part two
+
+solutionTwo :: String -> Int
+solutionTwo input = 
+      product (map (\(dx,dy) -> totalTreesHitOnPath input dx dy) paths)
+    where
+      paths = 
+        [ (1, 1)
+        , (3, 1)
+        , (5, 1)
+        , (7, 1)
+        , (1, 2)
+        ]
+      _ = show ((map (\(dx,dy) -> totalTreesHitOnPath input dx dy) paths))
 
 day03 :: IO ()
 day03 = do  
     problemInput <- readFile "input/day-03.txt"
     putStrLn "Day 3"
     putStrLn $ "  Part one: " ++ show (solutionOne problemInput)
+    putStrLn $ "  Part two: " ++ show (solutionTwo problemInput)
