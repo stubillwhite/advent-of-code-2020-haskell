@@ -27,6 +27,7 @@ library
   exposed-modules:
       AdventOfCode.Day01
       AdventOfCode.Day02
+      AdventOfCode.Day03
       Lib
   other-modules:
       Paths_AdventOfCode2020
@@ -60,6 +61,7 @@ test-suite AdventOfCode2020-test
   other-modules:
       AdventOfCode.Day01Spec
       AdventOfCode.Day02Spec
+      AdventOfCode.Day03Spec
       Paths_AdventOfCode2020
   hs-source-dirs:
       test
